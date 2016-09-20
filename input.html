@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- DO NOT SUBMIT: Fix Page Title. Missing tags? http://go/optional-html -->
+<title>Sample page with single input field and some text </title>
+<body>
+  <div id="text-block">
+    This is the text block to test not the test block to text or the block test to text or the block text to test or the text test or test text to block.
+  </div>
+  <input type="text" value="abc">
+  <script>
+  document.querySelector('input').onfocus = function() {
+    var data = {text: this.value, type: 'focused'};
+    window.parent.postMessage(data, '*');
+  };
+
+  </script>
+</body>
