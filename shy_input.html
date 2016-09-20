@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- DO NOT SUBMIT: Fix Page Title. Missing tags? http://go/optional-html -->
+<title>Page Title</title>
+<body>
+  <input type="text"></input>
+  <script>
+    document.querySelector('input').onfocus = function() {
+      if (window.parent) {
+        window.setTimeout(function() {
+          window.parent.removeAll();
+        }, 3000);
+      }
+    };
+  </script>
+
+</body>

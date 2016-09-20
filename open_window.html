@@ -1,0 +1,23 @@
+<html>
+<label> URL </label>
+<input id="url" value="http://127.0.0.1:8000/input.html"/>
+<br/>
+<label> Close after (-1 for inf) </label>
+<input id="timer" value="-1"/>
+</label> seconds </label>
+<button id="create"> Create </button>
+<script>
+window.addEventListener('load', function() {
+  document.querySelector('#create').addEventListener('click', function() {
+    var win = window.open(document.querySelector('#url').value);
+    var timer = document.querySelector('#timer').value;
+    if (timer !== "-1") {
+      window.setTimeout(function() {
+        win.close();
+      }, timer * 1000);
+    }
+  });
+})
+
+</script>
+</html>

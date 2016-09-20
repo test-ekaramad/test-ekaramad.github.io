@@ -1,0 +1,17 @@
+<html>
+<body>
+  <div style="position: absolute;">Move</div>
+
+  <button id="right"> Right </button>
+  <script>
+    var left = 0;
+    var obj = document.querySelector('div');
+    document.getElementById('right').onclick =  function() {
+      console.log("hey" + obj.style.left);
+      left += 10;
+      obj.style.left = left + 'px';
+      console.log(obj.style.left)
+    };
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Vsiibility Handler </title>
+</head>
+<style>
+  label {
+    color: blue;
+  }
+</style>
+<body>
+  <label> Events: </label>
+  <label id="events"></label>
+  <br/>
+  <label> States: </label>
+  <label id="states"></label>
+  <script>    
+    var visibilityEvents = [];
+    var visibilityStates = [];
+    window.setInterval(function () {
+      visibilityStates.push(document.visibilityState);
+      visibilityStates = trim(visibilityStates, 10);
+      document.querySelector('#states').textContent = visibilityStates.join('->');
+    })
+
+    document.addEventListener('visibilitychange', function () {
+      visibilityEvents.push(document.visibilityState);
+      visibilityEvents = trim(visibilityEvents, 10);
+      document.querySelector('#events').textContent = visibilityEvents.join('->');
+    }, 000);
+
+    function trim(arr, lim) {
+      if (arr.length > lim) {
+        return arr.splice(1);
+      }
+      return arr;
+    }
+
+  </script>
+</body>
+</html>

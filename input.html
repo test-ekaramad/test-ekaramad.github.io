@@ -1,0 +1,21 @@
+<html>
+<body>
+<button> Count To: </button>
+<input id="counter" type="number" value="5000"/>
+<input type="text" value="enter text ..." id="input-text"/>
+<script>
+  document.querySelector('button').onclick = function() {
+    var input = document.querySelector('#counter');
+    while(input.value > 0) {
+      input.value = input.value - 1;
+    }
+  };
+  document.querySelector('#input-text').onblur = function() {
+    var input = this;
+    window.setTimeout(function() {
+      input.focus();
+    }, 3000);
+  };
+</script>
+</body>
+<html>

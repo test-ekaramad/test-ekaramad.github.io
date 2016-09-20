@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>iFrame Factory</title>
+    <style>
+        .new-frame {
+            width: 400px;
+            height: 350px;
+            border: solid 2px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="addIframe();"> Add </button>
+    <button onclick="removeAll();"> Remove All </button>
+    <div id="container"></div>
+    <script>
+        var container = null;
+        window.onload = function () {
+            container = document.querySelector('#container');
+        };
+
+        function addIframe() {
+            var div = document.createElement('div');
+            var frame = document.createElement('iframe');
+            frame.setAttribute('class', 'new-frame');
+
+            var addressBar = document.createElement('input');
+            addressBar.value = 'http://127.0.0.2:8000/';
+            addressBar.style.width = '200px;';
+
+            var navigate = document.createElement('button');
+            navigate.textContent = 'Navigate';
+            navigate.onclick = function () {
+                frame.src = addressBar.value;
+            };
+
+            var rem = document.createElement('button');
+            rem.textContent = 'Remove';
+            rem.onclick = function() {
+                container.removeChild(div);
+            };
+
+            var timedRem = document.createElement('button');
+            timedRem.textContent = 'Remove in 5sec';
+            timedRem.onclick = function() {
+                window.setTimeout(function() {
+                    container.removeChild(div);
+                }, 5000);
+            };
+
+            div.appendChild(frame);
+            div.appendChild(addressBar);
+            div.appendChild(navigate);
+            div.appendChild(rem);
+            div.appendChild(timedRem);
+
+            container.appendChild(div);
+        }
+
+        function removeAll() {
+            while (container && container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+        }
+
+    </script>
+    <script src="messages.js"></script>
+</body>
+</html>
