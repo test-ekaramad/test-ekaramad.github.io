@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<!-- DO NOT SUBMIT: Fix Page Title. Missing tags? http://go/optional-html -->
+<title>Page Title</title>
+<body>
+  <iframe src="http://test-ekaramad.github.io/input.html"></iframe>
+  <button> HTTPS </button>
+  <script>
+    var isHTTPsScheme = false;
+    document.querySelector('button').onclick = function() {
+      var iframe = document.querySelector('iframe');
+      var currUrl = iframe.src;
+      var text;
+      if (isHTTPsScheme) {
+        text = 'HTTP';
+        currUrl = currUrl.replace('https:', 'http')
+      } else {
+        text = 'HTTPS';
+        currUrl = currUrl.replace('http:', 'https');
+      }
+      iframe.src = currUrl;
+      document.querySelector('button').textContent = text;
+    };
+  </script>
+      
+</body>
